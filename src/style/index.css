@@ -1,0 +1,202 @@
+@import './_responsive.css';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'roboto', cursive;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.page_404 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  gap: 1rem;
+}
+
+.page_404 .not_found {
+  font: normal 600 40px/30px 'Roboto', cursive;
+}
+
+.fa-circle-notch {
+  color: rgba(161, 7, 161, 0.7);
+}
+
+.App .content .driver-profile__area {
+  display: grid;
+  grid-template-columns: 1fr repeat(2, 2fr) 0.5fr repeat(1, 2fr) 0.25fr;
+  grid-template-rows: 1fr repeat(2, 2fr) 1fr 1fr;
+  min-width: 100vw;
+  min-height: 100vh;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url('../../public/assets/img/background.webp') no-repeat;
+  object-fit: cover;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.App .content .driver-profile__area .driver_row {
+  grid-column: 2/6;
+  grid-row: 2/4;
+
+  display: flex;
+  flex-direction: row;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.App .content .driver-profile__area .driver_row .driver_profile {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 10rem;
+  background-color: rgb(240, 240, 240);
+  border-radius: 20px;
+}
+
+.App .content .driver-profile__area .driver_row .driver_profile .driver_image {
+  border: 5px solid rgba(1, 64, 89, 0.7);
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+}
+
+.App .content .driver-profile__area .driver_row .driver_profile .driver_image img {
+  width: 100%;
+  height: 100%;
+}
+
+.App .content .driver-profile__area .driver_row .driver_profile .driver_badge {
+  position: absolute;
+  display: flex;
+  top: 0.5rem;
+  right: 1.5rem;
+  gap: 0.5rem;
+  color: grey;
+  margin: 1rem auto;
+}
+
+.App .content .driver-profile__area .driver_row .driver_profile .year {
+  font: normal 500 16px/20px 'Roboto', cursive;
+  color: rgb(41, 41, 41);
+  margin: 1rem auto;
+}
+
+.App .content .driver-profile__area .driver_row .driver_profile .driver_name {
+  font: normal bold 25px/30px 'Roboto', cursive;
+  color: rgb(1, 64, 89);
+}
+
+.App .content .driver-profile__area .driver_row .driver_profile .driver_address,
+.App .content .driver-profile__area .driver_row .driver_profile .driver_contact {
+  display: flex;
+  gap: 1rem;
+  font-size: 24px;
+  color: rgb(1, 64, 89);
+  margin-top: 0.5rem;
+}
+
+.App .content .driver-profile__area .driver_row .driver_profile .driver_contact {
+  margin-top: 1.5rem !important;
+}
+
+.App .content .driver-profile__area .driver_row .driver_profile .driver_contact .contact-title {
+  color: black;
+  letter-spacing: 0.105rem;
+}
+
+.App .content .driver-profile__area .driver_row .login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  color: aliceblue;
+  row-gap: 1rem;
+}
+
+.App .content .driver-profile__area .driver_row .login .login-title {
+  font: normal bold 30px/30px 'Roboto', cursive;
+  letter-spacing: -0.05rem;
+}
+
+.App .content .driver-profile__area .driver_row .login .login-description {
+  font: normal 500 24px/30px 'Roboto', cursive;
+}
+
+.App .content .driver-profile__area .driver_row .login .google {
+  width: 120%;
+  height: auto;
+  border-radius: 21px;
+  outline: none;
+  border: none;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  gap: 0.5rem;
+
+  padding: 0.5rem 0 0.5rem 0;
+  margin-top: 3rem;
+}
+
+.App .content .driver-profile__area .driver_row .login .google .google-title {
+  font: normal 500 21px/25px 'Roboto', cursive;
+}
+
+.App .content .driver-profile__area .language_row {
+  position: relative;
+
+  grid-column: 1/-1;
+  grid-row: 4/-1;
+
+  display: flex;
+  justify-content: center;
+
+  width: 100%;
+  height: auto;
+}
+
+.App .content .driver-profile__area .language_row .footer {
+  position: absolute;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  width: 50vw;
+  height: auto;
+  background-color: aliceblue;
+  text-align: center;
+  border-radius: 50px;
+
+  padding: 1rem 0 2.5rem 0;
+  bottom: -2rem;
+
+  gap: 1rem;
+}
+
+.App .content .driver-profile__area .language_row .footer .language-title {
+  font: normal 500 20px/20px 'Roboto', cursive;
+}
+
+.App .content .driver-profile__area .language_row .footer i {
+  margin-top: -0.1rem;
+}

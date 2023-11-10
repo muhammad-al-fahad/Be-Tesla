@@ -1,0 +1,138 @@
+@media only screen and (max-width: 1024px) {
+    .App .content .driver-profile__area .driver_row .driver_profile {
+        padding: 0 5rem !important;
+    }
+
+    .App .content .driver-profile__area .driver_row .login .login-title {
+        width: 15rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .App .content .driver-profile__area .driver_row .login .login-title span,
+    .App .content .driver-profile__area .driver_row .login .login-description span {
+        margin: 0 0.25rem;
+    }
+
+    .App .content .driver-profile__area .driver_row .login .login-description {
+        font-weight: 400;
+        width: 15rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .App .content .driver-profile__area .driver_row .login .google {
+        width: 15rem !important;
+    }
+
+    .App .content .driver-profile__area .language_row .footer {
+        width: 70vw !important;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .App .content .driver-profile__area .driver_row .driver_profile {
+        padding: 0 2.5rem !important;
+    }
+
+    .App .content .driver-profile__area .driver_row .login .login-title {
+        width: 10rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .App .content .driver-profile__area .driver_row .login .login-description {
+        font-weight: 300;
+        width: 10rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .App .content .driver-profile__area .driver_row .login .google {
+        width: 12rem !important;
+        display: flex;
+        justify-content: center;
+    }
+
+    .App .content .driver-profile__area .language_row .footer {
+        width: 90vw !important;
+    }
+
+    span {
+        margin: 0 0.25rem !important;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .App .content .driver-profile__area .driver_row {
+        grid-column: 1/-1 !important;
+        grid-row: 1/5 !important;
+        padding: 0 1.5rem;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 3rem auto;
+    }
+
+    .App .content .driver-profile__area .driver_row .login {
+        margin: 3rem auto;
+    }
+
+    .App .content .driver-profile__area .driver_row .driver_profile {
+        padding: 3rem 2.5rem !important;
+    }
+
+    .App .content .driver-profile__area .driver_row .login .login-title {
+        font-size: 28px !important;
+        width: 80%;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
+
+    .App .content .driver-profile__area .driver_row .login .login-description {
+        font-size: 22px !important;
+        width: 100%;
+        flex-wrap: nowrap;
+    }
+
+    .App .content .driver-profile__area .driver_row .login .google {
+        width: 100% !important;
+    }
+
+    .App .content .driver-profile__area .language_row .footer {
+        width: 100vw !important;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .App .content .driver-profile__area .driver_row .driver_profile {
+        padding: 3rem 1rem !important;
+    }
+
+    .App .content .driver-profile__area .driver_row .login .login-title {
+        font-size: 24px !important;
+    }
+
+    .App .content .driver-profile__area .driver_row .login .login-description {
+        font-size: 18px !important;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .App .content .driver-profile__area .driver_row .driver_profile {
+        padding: 3rem 0.5rem !important;
+    }
+
+    .App .content .driver-profile__area .driver_row .login .login-title {
+        font-size: 21px !important;
+    }
+
+    .App .content .driver-profile__area .driver_row .login .login-description {
+        font-size: 16px !important;
+    }
+}
