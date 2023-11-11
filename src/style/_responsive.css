@@ -1,3 +1,13 @@
+@media only screen and (max-width: 1440px) {
+    .App .content .driver-profile__area .driver_row .login .login-title {
+        width: 30rem;
+    }
+
+    .App .content .driver-profile__area .driver_row .login .login-description {
+        width: 30rem;
+    }
+}
+
 @media only screen and (max-width: 1024px) {
     .App .content .driver-profile__area .driver_row .driver_profile {
         padding: 0 5rem !important;
@@ -8,11 +18,6 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-    }
-
-    .App .content .driver-profile__area .driver_row .login .login-title span,
-    .App .content .driver-profile__area .driver_row .login .login-description span {
-        margin: 0 0.25rem;
     }
 
     .App .content .driver-profile__area .driver_row .login .login-description {
@@ -27,8 +32,12 @@
         width: 15rem !important;
     }
 
-    .App .content .driver-profile__area .language_row .footer {
+    .App .content .driver-profile__area .language_row .language-select {
         width: 70vw !important;
+    }
+
+    .App .content .driver-profile__area .error-area .error {
+        width: 40vw !important;
     }
 }
 
@@ -58,12 +67,12 @@
         justify-content: center;
     }
 
-    .App .content .driver-profile__area .language_row .footer {
+    .App .content .driver-profile__area .language_row .language-select {
         width: 90vw !important;
     }
 
-    span {
-        margin: 0 0.25rem !important;
+    .App .content .driver-profile__area .error-area .error {
+        width: 50vw !important;
     }
 }
 
@@ -104,8 +113,16 @@
         width: 100% !important;
     }
 
-    .App .content .driver-profile__area .language_row .footer {
+    .App .content .driver-profile__area .language_row .language-select {
         width: 100vw !important;
+    }
+
+    .App .content .driver-profile__area .language_row  .language_popup {
+        top: -0.5rem !important;
+    }
+
+    .App .content .driver-profile__area .error-area .error {
+        width: 60vw !important;
     }
 }
 
@@ -121,6 +138,10 @@
     .App .content .driver-profile__area .driver_row .login .login-description {
         font-size: 18px !important;
     }
+
+    .App .content .driver-profile__area .error-area .error {
+        width: 70vw !important;
+    }
 }
 
 @media only screen and (max-width: 320px) {
@@ -134,5 +155,9 @@
 
     .App .content .driver-profile__area .driver_row .login .login-description {
         font-size: 16px !important;
+    }
+
+    .App .content .driver-profile__area .error-area .error {
+        width: 80vw !important;
     }
 }

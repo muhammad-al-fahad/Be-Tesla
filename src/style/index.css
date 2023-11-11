@@ -29,20 +29,80 @@ code {
   font: normal 600 40px/30px 'Roboto', cursive;
 }
 
+.App .content .driver-profile__area .loading {
+  position: absolute;
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .fa-circle-notch {
   color: rgba(161, 7, 161, 0.7);
 }
 
+.App .content .driver-profile__area .error-area {
+  position: absolute;
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.App .content .driver-profile__area .error-area .error {
+  width: 30vw;
+  height: 30vh;
+  background-color: white;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 15px;
+  row-gap: 1.5rem;
+}
+
+.App .content .driver-profile__area .error-area .error i {
+  color: rgb(252, 48, 48);
+}
+
+.App .content .driver-profile__area .error-area .error .error-title {
+  font: normal 500 18px/20px 'Roboto', cursive;
+}
+
+.App .content .driver-profile__area .error-area .error button {
+  padding: 1rem 3rem;
+  border-radius: 15px;
+  border: none;
+  background-color: rgb(1, 58, 67, 0.9);
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+}
+
 .App .content .driver-profile__area {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr repeat(2, 2fr) 0.5fr repeat(1, 2fr) 0.25fr;
   grid-template-rows: 1fr repeat(2, 2fr) 1fr 1fr;
   min-width: 100vw;
   min-height: 100vh;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url('../../public/assets/img/background.webp') no-repeat;
-  object-fit: cover;
-  background-size: cover;
   overflow: hidden;
+}
+
+.App .content .driver-profile__area::before {
+  content: '';
+  position: absolute;
+  top: -1rem;
+  left: -1rem;
+  width: 110%;
+  height: 110%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9) 10%, rgba(0, 0, 0, 0.3) 80%), url('../../public/asset/images/company-car.jpg') no-repeat;
+  background-size: cover;
+  filter: blur(5px);
+  z-index: -99;
 }
 
 .App .content .driver-profile__area .driver_row {
@@ -64,12 +124,12 @@ code {
   justify-content: center;
 
   padding: 0 10rem;
-  background-color: rgb(240, 240, 240);
+  background-color: rgb(215, 215, 215);
   border-radius: 20px;
 }
 
 .App .content .driver-profile__area .driver_row .driver_profile .driver_image {
-  border: 5px solid rgba(1, 64, 89, 0.7);
+  border: 5px solid white;
   border-radius: 50%;
   width: 200px;
   height: 200px;
@@ -133,14 +193,16 @@ code {
 .App .content .driver-profile__area .driver_row .login .login-title {
   font: normal bold 30px/30px 'Roboto', cursive;
   letter-spacing: -0.05rem;
+  text-align: center;
 }
 
 .App .content .driver-profile__area .driver_row .login .login-description {
   font: normal 500 24px/30px 'Roboto', cursive;
+  text-align: center;
 }
 
 .App .content .driver-profile__area .driver_row .login .google {
-  width: 120%;
+  width: 100%;
   height: auto;
   border-radius: 21px;
   outline: none;
@@ -153,12 +215,14 @@ code {
 
   gap: 0.5rem;
 
-  padding: 0.5rem 0 0.5rem 0;
+  padding: 0.5rem 0;
   margin-top: 3rem;
+  cursor: pointer;
 }
 
 .App .content .driver-profile__area .driver_row .login .google .google-title {
   font: normal 500 21px/25px 'Roboto', cursive;
+  text-align: center;
 }
 
 .App .content .driver-profile__area .language_row {
@@ -174,7 +238,7 @@ code {
   height: auto;
 }
 
-.App .content .driver-profile__area .language_row .footer {
+.App .content .driver-profile__area .language_row .language-select {
   position: absolute;
 
   display: flex;
@@ -193,10 +257,45 @@ code {
   gap: 1rem;
 }
 
-.App .content .driver-profile__area .language_row .footer .language-title {
+.App .content .driver-profile__area .language_row .language-select .language-title {
   font: normal 500 20px/20px 'Roboto', cursive;
 }
 
-.App .content .driver-profile__area .language_row .footer i {
-  margin-top: -0.1rem;
+.App .content .driver-profile__area .language_row .language-select .language-selecter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.App .content .driver-profile__area .language_row .language-select .language-selecter i {
+  margin-top: -0.3rem;
+}
+
+.App .content .driver-profile__area .language_row  .language_popup {
+  position: absolute;
+  background: white;
+  padding: 3rem 5rem;
+  top: -3.5rem;
+  box-shadow: 5px 5px 20px 5px rgba(41, 41, 41, 0.8);
+  border-radius: 15px;
+  z-index: 99;
+  transform: translateY(1000px);
+}
+
+.App .content .driver-profile__area .language_row  .language_popup .language-list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 3rem;
+}
+
+.App .content .driver-profile__area .language_row  .language_popup .language-list .language-item {
+  font: normal 600 18px/20px 'Roboto', cursive;
+  cursor: pointer;
 }
