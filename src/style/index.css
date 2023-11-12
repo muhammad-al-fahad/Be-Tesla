@@ -70,6 +70,11 @@ code {
 
 .App .content .driver-profile__area .error-area .error .error-title {
   font: normal 500 18px/20px 'Roboto', cursive;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
 }
 
 .App .content .driver-profile__area .error-area .error button {
@@ -190,6 +195,10 @@ code {
   row-gap: 1rem;
 }
 
+.App .content .driver-profile__area .driver_row .login div{
+  margin-top: 1.5rem;
+}
+
 .App .content .driver-profile__area .driver_row .login .login-title {
   font: normal bold 30px/30px 'Roboto', cursive;
   letter-spacing: -0.05rem;
@@ -201,29 +210,20 @@ code {
   text-align: center;
 }
 
-.App .content .driver-profile__area .driver_row .login .google {
+/* .App .content .driver-profile__area .driver_row .login .google{
+  position: relative;
   width: 100%;
   height: auto;
-  border-radius: 21px;
-  outline: none;
-  border: none;
-
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-
-  gap: 0.5rem;
 
   padding: 0.5rem 0;
   margin-top: 3rem;
   cursor: pointer;
-}
+} */
 
-.App .content .driver-profile__area .driver_row .login .google .google-title {
+/* .App .content .driver-profile__area .driver_row .login .google .google-title {
   font: normal 500 21px/25px 'Roboto', cursive;
   text-align: center;
-}
+} */
 
 .App .content .driver-profile__area .language_row {
   position: relative;

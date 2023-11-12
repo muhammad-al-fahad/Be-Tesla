@@ -44,6 +44,7 @@ function DriverProfile() {
   const [driver, setDriver] = useState(null);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true)
+  const [accessToken, setAccessToken] = useState('');
 
   // useEffect where the action should be perform on id
   useEffect(() => {
@@ -92,10 +93,6 @@ function DriverProfile() {
     element.style.transition = 'transform 1s ease-in-out';
   }
 
-  function responseGoogle(response) {
-    console.log(response)
-  }
-
   return (
     <div className='container'>
       <div className='driver-profile__area'>
@@ -137,21 +134,20 @@ function DriverProfile() {
                 </div>
               </div>
 
-              <div className='login'>
-                <h1 className='login-title'>{t('Welcome to Driver Management')}</h1>
-                <h5 className='login-description'>{t('Please sign in to continue adding a driver')}</h5>
-                <div className='google-lgin'></div>
-                <GoogleOAuthProvider clientId="248512364814-3mlglq52je3233ofmrdbgt6f74p9g341.apps.googleusercontent.com">
-                  <GoogleLogin
-                    onSuccess={credentialResponse => {
-                      console.log(credentialResponse);
-                    }}
-                    onError={() => {
-                      console.log('Login Failed');
-                    }}
-                  />
-                </GoogleOAuthProvider>
-              </div>
+              { !accessToken &&
+                  <div className='login'>
+                    <h1 className='login-title'>{t('Welcome to Driver Management')}</h1>
+                    <h5 className='login-description'>{t('Please sign in to continue adding a driver')}</h5>
+                      <GoogleOAuthProvider clientId="248512364814-3mlglq52je3233ofmrdbgt6f74p9g341.apps.googleusercontent.com">
+                        <GoogleLogin
+                          size='large'
+                          shape='circle'
+                          onSuccess={(credentialResponse) => setAccessToken(credentialResponse.credential)}
+                          onError={(error) => setError(error.message)}
+                        />
+                      </GoogleOAuthProvider>
+                  </div>
+              }
             </div>
           }
           </>
