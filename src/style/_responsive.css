@@ -28,10 +28,6 @@
         justify-content: center;
     }
 
-    .App .content .driver-profile__area .driver_row .login .google {
-        width: 15rem !important;
-    }
-
     .App .content .driver-profile__area .language_row .language-select {
         width: 70vw !important;
     }
@@ -62,9 +58,10 @@
     }
 
     .App .content .driver-profile__area .driver_row .login .google {
-        width: 12rem !important;
+        width: 80% !important;
+        padding: 0.5rem !important;
         display: flex;
-        justify-content: center;
+        column-gap: 0.5rem;
     }
 
     .App .content .driver-profile__area .language_row .language-select {
@@ -96,17 +93,18 @@
     }
 
     .App .content .driver-profile__area .driver_row .login .login-title {
-        font-size: 28px !important;
-        width: 80%;
+        font-size: 26px !important;
+        width: 100%;
         display: flex;
         flex-wrap: nowrap;
-        justify-content: center;
+        text-align: start !important;
     }
 
     .App .content .driver-profile__area .driver_row .login .login-description {
-        font-size: 22px !important;
+        font-size: 20px !important;
         width: 100%;
         flex-wrap: nowrap;
+        text-align: start !important;
     }
 
     .App .content .driver-profile__area .driver_row .login .google {
@@ -132,11 +130,11 @@
     }
 
     .App .content .driver-profile__area .driver_row .login .login-title {
-        font-size: 24px !important;
+        font-size: 22px !important;
     }
 
     .App .content .driver-profile__area .driver_row .login .login-description {
-        font-size: 18px !important;
+        font-size: 17px !important;
     }
 
     .App .content .driver-profile__area .error-area .error {
@@ -150,11 +148,11 @@
     }
 
     .App .content .driver-profile__area .driver_row .login .login-title {
-        font-size: 21px !important;
+        font-size: 18px !important;
     }
 
     .App .content .driver-profile__area .driver_row .login .login-description {
-        font-size: 16px !important;
+        font-size: 14px !important;
     }
 
     .App .content .driver-profile__area .error-area .error {

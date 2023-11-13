@@ -3,11 +3,9 @@ import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import i18n from 'i18next';
 import { useTranslation, initReactI18next } from 'react-i18next'
-import {GoogleOAuthProvider, GoogleLogin} from '@react-oauth/google'
-
-import enTranslation from '../langs/en.json';
-import frTranslation from '../langs/fr.json';
-import ptTranslation from '../langs/pt.json';
+import enTranslation from '../langs/en.json'
+import frTranslation from '../langs/fr.json'
+import ptTranslation from '../langs/pt.json'
 
 i18n
   .use(initReactI18next) // passes i18n down to react-i18next
@@ -71,6 +69,10 @@ function DriverProfile() {
     fetchDriver();
   }, [id])
 
+  useEffect(() => {
+    if(accessToken) document.querySelector('.driver_row').classList.add('auth')
+  }, [accessToken])
+
   // Declare custom functions
   function selectLanguage() {
     var element = document.querySelector('.language_popup');
@@ -93,6 +95,20 @@ function DriverProfile() {
     element.style.transition = 'transform 1s ease-in-out';
   }
 
+  const tokenClient = window.google.accounts.oauth2.initTokenClient({
+    client_id: "248512364814-3mlglq52je3233ofmrdbgt6f74p9g341.apps.googleusercontent.com",
+    scope: "https://www.googleapis.com/auth/contacts.readonly",
+    prompt: "select_account",
+    callback: (res) => setAccessToken(res.access_token)
+  })
+
+  function responseGoogle() {
+    const overrideConfig = {
+      prompt: "select_account",
+    }
+    tokenClient.requestAccessToken(overrideConfig)
+  }
+
   return (
     <div className='container'>
       <div className='driver-profile__area'>
@@ -112,7 +128,7 @@ function DriverProfile() {
             <div className='driver_row'>
               <div className='driver_profile'>
                 <div className='driver_image'>
-                  <img src={driver.personalInfo.profileUrl ? driver.personalInfo.profileUrl : '/asset/images/invalid_image.png'} alt="driver-image" />
+                  <img src={driver.personalInfo.profileUrl ? driver.personalInfo.profileUrl : '/asset/images/invalid_image.png'} alt="Driver Image" />
                 </div>
 
                 <div className='driver_badge'>
@@ -138,14 +154,10 @@ function DriverProfile() {
                   <div className='login'>
                     <h1 className='login-title'>{t('Welcome to Driver Management')}</h1>
                     <h5 className='login-description'>{t('Please sign in to continue adding a driver')}</h5>
-                      <GoogleOAuthProvider clientId="248512364814-3mlglq52je3233ofmrdbgt6f74p9g341.apps.googleusercontent.com">
-                        <GoogleLogin
-                          size='large'
-                          shape='circle'
-                          onSuccess={(credentialResponse) => setAccessToken(credentialResponse.credential)}
-                          onError={(error) => setError(error.message)}
-                        />
-                      </GoogleOAuthProvider>
+                    <button type='button' className='google' onClick={responseGoogle}>
+                      <img src='/asset/images/google_icon.png' alt="Google Icon" />
+                      <p className='google-title'>{t('Login with Google')}</p>
+                    </button>
                   </div>
               }
             </div>

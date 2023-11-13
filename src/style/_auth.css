@@ -1,0 +1,11 @@
+.App .content .driver-profile__area .driver_row.auth {
+    grid-column: 1/-1;
+    grid-row: 1/5;
+}
+
+.App .content .driver-profile__area .driver_row.auth .driver_profile {
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin: 3rem auto;
+}

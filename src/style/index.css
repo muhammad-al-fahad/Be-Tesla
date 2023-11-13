@@ -1,4 +1,6 @@
+
 @import './_responsive.css';
+@import './_auth.css';
 
 * {
   margin: 0;
@@ -7,7 +9,7 @@
 }
 
 body {
-  font-family: 'roboto', cursive;
+  font-family: 'roboto', sans-serif;
 }
 
 code {
@@ -26,7 +28,7 @@ code {
 }
 
 .page_404 .not_found {
-  font: normal 600 40px/30px 'Roboto', cursive;
+  font: normal 600 40px/30px 'roboto', cursive;
 }
 
 .App .content .driver-profile__area .loading {
@@ -69,7 +71,7 @@ code {
 }
 
 .App .content .driver-profile__area .error-area .error .error-title {
-  font: normal 500 18px/20px 'Roboto', cursive;
+  font: normal 500 18px/20px 'roboto', cursive;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -115,7 +117,6 @@ code {
   grid-row: 2/4;
 
   display: flex;
-  flex-direction: row;
   flex-flow: row wrap;
   justify-content: space-between;
 }
@@ -157,13 +158,13 @@ code {
 }
 
 .App .content .driver-profile__area .driver_row .driver_profile .year {
-  font: normal 500 16px/20px 'Roboto', cursive;
+  font: normal 500 16px/20px 'roboto', cursive;
   color: rgb(41, 41, 41);
   margin: 1rem auto;
 }
 
 .App .content .driver-profile__area .driver_row .driver_profile .driver_name {
-  font: normal bold 25px/30px 'Roboto', cursive;
+  font: normal bold 25px/30px 'roboto', cursive;
   color: rgb(1, 64, 89);
 }
 
@@ -188,42 +189,44 @@ code {
 .App .content .driver-profile__area .driver_row .login {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
 
   color: aliceblue;
   row-gap: 1rem;
 }
 
-.App .content .driver-profile__area .driver_row .login div{
-  margin-top: 1.5rem;
-}
-
 .App .content .driver-profile__area .driver_row .login .login-title {
-  font: normal bold 30px/30px 'Roboto', cursive;
-  letter-spacing: -0.05rem;
+  font: normal bold 28px/30px 'roboto', cursive;
   text-align: center;
 }
 
 .App .content .driver-profile__area .driver_row .login .login-description {
-  font: normal 500 24px/30px 'Roboto', cursive;
+  font: normal 500 22px/30px 'roboto', cursive;
   text-align: center;
 }
 
-/* .App .content .driver-profile__area .driver_row .login .google{
+.App .content .driver-profile__area .driver_row .login .google{
   position: relative;
   width: 100%;
   height: auto;
 
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+
   padding: 0.5rem 0;
   margin-top: 3rem;
   cursor: pointer;
-} */
+}
 
-/* .App .content .driver-profile__area .driver_row .login .google .google-title {
-  font: normal 500 21px/25px 'Roboto', cursive;
+.App .content .driver-profile__area .driver_row .login .google .google-title {
+  font: normal 500 20px/25px 'roboto', cursive;
   text-align: center;
-} */
+}
 
 .App .content .driver-profile__area .language_row {
   position: relative;
@@ -258,7 +261,7 @@ code {
 }
 
 .App .content .driver-profile__area .language_row .language-select .language-title {
-  font: normal 500 20px/20px 'Roboto', cursive;
+  font: normal 500 20px/20px 'roboto', cursive;
 }
 
 .App .content .driver-profile__area .language_row .language-select .language-selecter {
@@ -296,6 +299,6 @@ code {
 }
 
 .App .content .driver-profile__area .language_row  .language_popup .language-list .language-item {
-  font: normal 600 18px/20px 'Roboto', cursive;
+  font: normal 600 18px/20px 'roboto', cursive;
   cursor: pointer;
 }
