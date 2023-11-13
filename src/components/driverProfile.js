@@ -3,9 +3,25 @@ import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import i18n from 'i18next';
 import { useTranslation, initReactI18next } from 'react-i18next'
+
 import enTranslation from '../langs/en.json'
 import frTranslation from '../langs/fr.json'
 import ptTranslation from '../langs/pt.json'
+
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js'
+import { getAnalytics } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-analytics.js'
+import { getAuth, GoogleAuthProvider, signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAJviEDWC-i433k4s9cYISvUA1LZEn_Qgk",
+  authDomain: "api-5001069758254805059-921002.firebaseapp.com",
+  databaseURL: "https://api-5001069758254805059-921002.firebaseio.com",
+  projectId: "api-5001069758254805059-921002",
+  storageBucket: "api-5001069758254805059-921002.appspot.com",
+  messagingSenderId: "97053800643",
+  appId: "1:97053800643:web:c90a45de5f2120ee244a76",
+  measurementId: "G-MHV1FYPNEV"
+}
 
 i18n
   .use(initReactI18next) // passes i18n down to react-i18next
@@ -34,13 +50,21 @@ function DriverProfile() {
   const searchParams = new URLSearchParams(location.search);
   const id = searchParams.get('driverId');
 
+  // const tokenAccess = localStorage.getItem('token')
+
   const {t, i18n} = useTranslation()
   document.title = t('Add your driver');
+
+  const app = initializeApp(firebaseConfig)
+  const analytics = getAnalytics(app)
+  const auth = getAuth(app);
+  const provider = new GoogleAuthProvider();
 
   // Initialize state variables
   const [language, setLanguage] = useState('English');
   const [driver, setDriver] = useState(null);
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(true)
   const [accessToken, setAccessToken] = useState('');
 
@@ -59,18 +83,23 @@ function DriverProfile() {
           setDriver(result.driver);
         } else {
           setError("Driver not found");
+          setSuccess(false);
         }
       } catch (error) {
-        setError(error.message)
+        console.error(error.message)
       }
     }
 
-    
     fetchDriver();
   }, [id])
 
   useEffect(() => {
-    if(accessToken) document.querySelector('.driver_row').classList.add('auth')
+    const driverRow = document.querySelector('.driver_row')
+    if(accessToken) {
+      driverRow.classList.add('auth')
+      setSuccess(true)
+      setError('');
+    }
   }, [accessToken])
 
   // Declare custom functions
@@ -78,7 +107,7 @@ function DriverProfile() {
     var element = document.querySelector('.language_popup');
 
     if(element.style.transform === 'translateY(1000px)') {
-      element.style.transform = 'translateY(0)';
+      element.style.transform = 'translateY(-120%)';
       element.style.transition = 'transform 0.75s ease-in-out';
     } else {
       element.style.transform = 'translateY(1000px)';
@@ -95,19 +124,19 @@ function DriverProfile() {
     element.style.transition = 'transform 1s ease-in-out';
   }
 
-  const tokenClient = window.google.accounts.oauth2.initTokenClient({
-    client_id: "248512364814-3mlglq52je3233ofmrdbgt6f74p9g341.apps.googleusercontent.com",
-    scope: "https://www.googleapis.com/auth/contacts.readonly",
-    prompt: "select_account",
-    callback: (res) => setAccessToken(res.access_token)
-  })
+  const signInWithGoogle = () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
 
-  function responseGoogle() {
-    const overrideConfig = {
-      prompt: "select_account",
-    }
-    tokenClient.requestAccessToken(overrideConfig)
-  }
+        setAccessToken(token)
+        // localStorage.setItem('token', token);
+      })
+      .catch((error) => {
+        console.error(error.message)
+      });
+  };
 
   return (
     <div className='container'>
@@ -127,6 +156,9 @@ function DriverProfile() {
           { id && driver &&
             <div className='driver_row'>
               <div className='driver_profile'>
+                <div className='login-success'>
+                  {success && accessToken && <h1 className='login-success-title'>{t('Driver Added Successfully')}</h1>}
+                </div>
                 <div className='driver_image'>
                   <img src={driver.personalInfo.profileUrl ? driver.personalInfo.profileUrl : '/asset/images/invalid_image.png'} alt="Driver Image" />
                 </div>
@@ -140,13 +172,31 @@ function DriverProfile() {
                 <h2 className='driver_name'>{driver.personalInfo.name}</h2>
 
                 <div className='driver_address'>
-                  <i className="fas fa-map-marker-alt address-icon"></i>
+                  <i className="fas fa-map-marker-alt"></i>
                   <p className='address-title'>{`${driver.personalInfo.address.city}, ${driver.personalInfo.address.state}, ${driver.personalInfo.address.country}`}</p>
                 </div>
 
                 <div className='driver_contact'>
-                  <i className="fas fa-phone-alt contact-icon"></i>
+                  <i className="fas fa-phone-alt"></i>
                   <p className='contact-title'>{driver.accountCreds.phoneNumber}</p>
+                </div>
+
+                <div className='idn'>
+                {success && accessToken &&
+                  <>
+                    <h2 className='idn-title'>Download IDN Private Application</h2>
+                    <div className='idn-store'>
+                      <img src='/asset/images/google_play.png' alt='Google Play' width={200} height={60}/>
+                      <img src='/asset/images/apple_store.png' alt='Apple Store' width={200} height={60}/>
+                    </div>
+
+                    <h2 className='idn-title'>Download IDN Public Application</h2>
+                    <div className='idn-store'>
+                      <img src='/asset/images/google_play.png' alt='Google Play' width={200} height={60}/>
+                      <img src='/asset/images/apple_store.png' alt='Apple Store' width={200} height={60}/>
+                    </div>
+                  </>
+                }
                 </div>
               </div>
 
@@ -154,7 +204,7 @@ function DriverProfile() {
                   <div className='login'>
                     <h1 className='login-title'>{t('Welcome to Driver Management')}</h1>
                     <h5 className='login-description'>{t('Please sign in to continue adding a driver')}</h5>
-                    <button type='button' className='google' onClick={responseGoogle}>
+                    <button type='button' className='google' onClick={signInWithGoogle}>
                       <img src='/asset/images/google_icon.png' alt="Google Icon" />
                       <p className='google-title'>{t('Login with Google')}</p>
                     </button>

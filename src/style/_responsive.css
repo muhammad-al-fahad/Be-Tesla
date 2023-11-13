@@ -9,6 +9,7 @@
 }
 
 @media only screen and (max-width: 1024px) {
+
     .App .content .driver-profile__area .driver_row .driver_profile {
         padding: 0 5rem !important;
     }
@@ -71,6 +72,13 @@
     .App .content .driver-profile__area .error-area .error {
         width: 50vw !important;
     }
+
+    .App .content .driver-profile__area .driver_row.auth .driver_profile .idn {
+        width: 70vw !important;
+        height: 30vh;
+        overflow: hidden;
+        order: 2;
+    }
 }
 
 @media only screen and (max-width: 425px) {
@@ -122,6 +130,38 @@
     .App .content .driver-profile__area .error-area .error {
         width: 60vw !important;
     }
+
+    .App .content .driver-profile__area .driver_row .driver_profile .year {
+        word-spacing: 0 !important;
+        letter-spacing: 0 !important;
+        padding-left: 0 !important;
+    }
+
+    .App .content .driver-profile__area .driver_row.auth .driver_profile .idn {
+        margin-top: 2rem;
+        width: 70vw !important;
+        overflow: hidden;
+    }
+
+    .App .content .driver-profile__area .driver_row.auth .driver_profile .idn .idn-title {
+        font-size: 18px;
+        display: flex;
+        justify-content: flex-start;
+    }
+    
+    .App .content .driver-profile__area .driver_row.auth .driver_profile .idn .idn-store {
+        width: 100% !important;
+        justify-content: flex-start !important;
+    }
+
+    .App .content .driver-profile__area .driver_row.auth .driver_profile .idn .idn-store img {
+        width: 140px;
+        height: 50px;
+    }
+
+    .App .content .driver-profile__area .driver_row.auth .driver_profile {
+        justify-content: flex-start;
+    }
 }
 
 @media only screen and (max-width: 375px) {
@@ -140,6 +180,15 @@
     .App .content .driver-profile__area .error-area .error {
         width: 70vw !important;
     }
+
+    .App .content .driver-profile__area .driver_row.auth .driver_profile .idn .idn-title {
+        font-size: 16px;
+    }
+
+    .App .content .driver-profile__area .driver_row.auth .driver_profile .idn .idn-store img {
+        width: 120px;
+        height: 40px;
+    }
 }
 
 @media only screen and (max-width: 320px) {
@@ -157,5 +206,18 @@
 
     .App .content .driver-profile__area .error-area .error {
         width: 80vw !important;
+    }
+
+    .App .content .driver-profile__area .driver_row.auth .driver_profile .idn .idn-title {
+        font-size: 13.5px;
+    }
+
+    .App .content .driver-profile__area .driver_row.auth .driver_profile .idn .idn-store img {
+        width: 100px;
+        height: 35px;
+    }
+
+    .App .content .driver-profile__area .driver_row.auth .driver_profile .year {
+        font-size: 18px !important;
     }
 }

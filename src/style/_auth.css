@@ -1,11 +1,59 @@
-.App .content .driver-profile__area .driver_row.auth {
-    grid-column: 1/-1;
-    grid-row: 1/5;
-}
-
 .App .content .driver-profile__area .driver_row.auth .driver_profile {
     justify-content: center;
     align-items: center;
     width: 90%;
+    height: 100%;
     margin: 3rem auto;
+}
+
+.App .content .driver-profile__area .driver_row.auth .driver_profile .login-success {
+    margin: 2rem auto;
+    color: rgb(1, 64, 89);
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.App .content .driver-profile__area .driver_row.auth .driver_profile .driver_badge {
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 0.5rem;
+    color: grey;
+    margin: 1rem auto;
+
+    padding-left: 3rem !important;
+}
+
+.App .content .driver-profile__area .driver_row.auth .driver_profile .year {
+    font: normal 500 20px/40px 'roboto', cursive;
+    order: 1;
+    color: grey;
+    word-spacing: 0.15rem;
+    letter-spacing: 0.1rem;
+    padding-left: 3rem;
+}
+
+.App .content .driver-profile__area .driver_row.auth .driver_profile .idn {
+    width: 40vw;
+    height: 30vh;
+    overflow: hidden;
+    order: 2;
+}
+
+.App .content .driver-profile__area .driver_row.auth .driver_profile .idn .idn-title {
+    text-align: center;
+    color: rgb(1, 64, 89);
+}
+
+.App .content .driver-profile__area .driver_row.auth .driver_profile .idn .idn-store {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 0.5rem auto;
 }

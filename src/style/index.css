@@ -24,11 +24,11 @@ code {
   justify-content: center;
   width: 100vw;
   height: 100vh;
-  gap: 1rem;
 }
 
 .page_404 .not_found {
-  font: normal 600 40px/30px 'roboto', cursive;
+  font: normal 600 28px/6rem sans-serif;
+  color: rgb(39, 38, 38);
 }
 
 .App .content .driver-profile__area .loading {
@@ -91,9 +91,6 @@ code {
 
 .App .content .driver-profile__area {
   position: relative;
-  display: grid;
-  grid-template-columns: 1fr repeat(2, 2fr) 0.5fr repeat(1, 2fr) 0.25fr;
-  grid-template-rows: 1fr repeat(2, 2fr) 1fr 1fr;
   min-width: 100vw;
   min-height: 100vh;
   overflow: hidden;
@@ -113,12 +110,12 @@ code {
 }
 
 .App .content .driver-profile__area .driver_row {
-  grid-column: 2/6;
-  grid-row: 2/4;
-
+  width: 100vw ;
+  height: 100vh;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .App .content .driver-profile__area .driver_row .driver_profile {
@@ -132,6 +129,8 @@ code {
   padding: 0 10rem;
   background-color: rgb(215, 215, 215);
   border-radius: 20px;
+
+  height: 60vh;
 }
 
 .App .content .driver-profile__area .driver_row .driver_profile .driver_image {
@@ -155,6 +154,7 @@ code {
   gap: 0.5rem;
   color: grey;
   margin: 1rem auto;
+  padding-left: 0 !important;
 }
 
 .App .content .driver-profile__area .driver_row .driver_profile .year {
@@ -229,10 +229,8 @@ code {
 }
 
 .App .content .driver-profile__area .language_row {
-  position: relative;
-
-  grid-column: 1/-1;
-  grid-row: 4/-1;
+  position: fixed;
+  bottom: 0;
 
   display: flex;
   justify-content: center;
