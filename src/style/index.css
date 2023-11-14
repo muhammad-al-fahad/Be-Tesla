@@ -138,6 +138,7 @@ code {
   border-radius: 50%;
   width: 200px;
   height: 200px;
+  box-shadow: 0 15px 15px -15px black;
   overflow: hidden;
 }
 

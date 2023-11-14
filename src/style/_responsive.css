@@ -8,7 +8,7 @@
     }
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1200px) {
 
     .App .content .driver-profile__area .driver_row .driver_profile {
         padding: 0 5rem !important;
@@ -38,7 +38,16 @@
     }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 970px) {
+    .App .content .driver-profile__area .driver_row.auth .driver_profile .idn {
+        width: 70vw !important;
+        height: 30vh;
+        overflow: hidden;
+        order: 2;
+    }
+}
+
+@media only screen and (max-width: 800px) {
     .App .content .driver-profile__area .driver_row .driver_profile {
         padding: 0 2.5rem !important;
     }
@@ -72,16 +81,9 @@
     .App .content .driver-profile__area .error-area .error {
         width: 50vw !important;
     }
-
-    .App .content .driver-profile__area .driver_row.auth .driver_profile .idn {
-        width: 70vw !important;
-        height: 30vh;
-        overflow: hidden;
-        order: 2;
-    }
 }
 
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width: 650px) {
     .App .content .driver-profile__area .driver_row {
         grid-column: 1/-1 !important;
         grid-row: 1/5 !important;
@@ -100,19 +102,23 @@
         padding: 3rem 2.5rem !important;
     }
 
+    .App .content .driver-profile__area .driver_row.auth .driver_profile {
+        padding: 0 2.5rem !important;
+    }
+
     .App .content .driver-profile__area .driver_row .login .login-title {
         font-size: 26px !important;
         width: 100%;
         display: flex;
         flex-wrap: nowrap;
-        text-align: start !important;
+        text-align: center !important;
     }
 
     .App .content .driver-profile__area .driver_row .login .login-description {
         font-size: 20px !important;
         width: 100%;
         flex-wrap: nowrap;
-        text-align: start !important;
+        text-align: center !important;
     }
 
     .App .content .driver-profile__area .driver_row .login .google {
@@ -131,32 +137,30 @@
         width: 60vw !important;
     }
 
+    .App .content .driver-profile__area .driver_row.auth .driver_profile .driver_image {
+        width: 150px;
+    }
+
     .App .content .driver-profile__area .driver_row .driver_profile .year {
         word-spacing: 0 !important;
         letter-spacing: 0 !important;
         padding-left: 0 !important;
     }
 
-    .App .content .driver-profile__area .driver_row.auth .driver_profile .idn {
-        margin-top: 2rem;
-        width: 70vw !important;
-        overflow: hidden;
-    }
-
     .App .content .driver-profile__area .driver_row.auth .driver_profile .idn .idn-title {
         font-size: 18px;
         display: flex;
-        justify-content: flex-start;
+        justify-content: center;
     }
     
     .App .content .driver-profile__area .driver_row.auth .driver_profile .idn .idn-store {
         width: 100% !important;
-        justify-content: flex-start !important;
+        justify-content: center !important;
     }
 
     .App .content .driver-profile__area .driver_row.auth .driver_profile .idn .idn-store img {
-        width: 140px;
-        height: 50px;
+        width: 130px;
+        height: 40px;
     }
 
     .App .content .driver-profile__area .driver_row.auth .driver_profile {
@@ -164,7 +168,7 @@
     }
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 430px) {
     .App .content .driver-profile__area .driver_row .driver_profile {
         padding: 3rem 1rem !important;
     }
@@ -191,9 +195,17 @@
     }
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 360px) {
     .App .content .driver-profile__area .driver_row .driver_profile {
         padding: 3rem 0.5rem !important;
+    }
+
+    .App .content .driver-profile__area .driver_row.auth .driver_profile {
+       width: 95% !important;
+    }
+
+    .App .content .driver-profile__area .driver_row.auth .driver_profile {
+        margin: 0.5rem auto !important;
     }
 
     .App .content .driver-profile__area .driver_row .login .login-title {
@@ -219,5 +231,24 @@
 
     .App .content .driver-profile__area .driver_row.auth .driver_profile .year {
         font-size: 18px !important;
+    }
+}
+
+@media only screen and (max-height: 770px) {
+    .App .content .driver-profile__area .driver_row .driver_profile .driver_image {
+        width: 45% !important;
+        height: auto !important;
+      }
+}
+
+@media only screen and (max-height: 650px) {
+    .App .content .driver-profile__area .driver_row .driver_profile .driver_image {
+        width: 35% !important;
+      }
+}
+
+@media only screen and (max-height: 550px) {
+    .App .content .driver-profile__area .driver_row .driver_profile .driver_image {
+        width: 25% !important;
     }
 }

@@ -1,13 +1,19 @@
+.App .content .driver-profile__area .driver_row.auth {
+    padding: 0;
+    width: 100vw;
+    height: 80vh;
+}
+
 .App .content .driver-profile__area .driver_row.auth .driver_profile {
     justify-content: center;
     align-items: center;
     width: 90%;
     height: 100%;
-    margin: 3rem auto;
+    margin: 2rem auto;
 }
 
 .App .content .driver-profile__area .driver_row.auth .driver_profile .login-success {
-    margin: 2rem auto;
+    margin: 1.5rem auto;
     color: rgb(1, 64, 89);
     display: flex;
     flex-wrap: wrap;
@@ -35,6 +41,7 @@
     word-spacing: 0.15rem;
     letter-spacing: 0.1rem;
     padding-left: 3rem;
+    margin: 0.5rem auto;
 }
 
 .App .content .driver-profile__area .driver_row.auth .driver_profile .idn {

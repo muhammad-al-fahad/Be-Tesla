@@ -50,8 +50,6 @@ function DriverProfile() {
   const searchParams = new URLSearchParams(location.search);
   const id = searchParams.get('driverId');
 
-  // const tokenAccess = localStorage.getItem('token')
-
   const {t, i18n} = useTranslation()
   document.title = t('Add your driver');
 
@@ -67,6 +65,7 @@ function DriverProfile() {
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(true)
   const [accessToken, setAccessToken] = useState('');
+  const [driverId, setDriverId] = useState('');
 
   // useEffect where the action should be perform on id
   useEffect(() => {
@@ -78,6 +77,7 @@ function DriverProfile() {
 
         const result = await response.json();
         setLoading(false);
+        setDriverId(result._id)
 
         if(result.success === true) {
           setDriver(result.driver);
@@ -95,12 +95,21 @@ function DriverProfile() {
 
   useEffect(() => {
     const driverRow = document.querySelector('.driver_row')
-    if(accessToken) {
+    if(accessToken && driverRow) {
       driverRow.classList.add('auth')
       setSuccess(true)
       setError('');
     }
   }, [accessToken])
+
+  useEffect(() => {
+    const lng = localStorage.getItem('language')
+    const txt = localStorage.getItem('languageName')
+
+    i18n.changeLanguage(lng)
+    setLanguage(txt)
+
+  }, [window.onload])
 
   // Declare custom functions
   function selectLanguage() {
@@ -116,22 +125,59 @@ function DriverProfile() {
   }
 
   function changeLanguage(lng, txt) {
+    window.location.reload();
+    localStorage.setItem('language', lng);
+    localStorage.setItem('languageName', txt);
     
-    i18n.changeLanguage(lng);
-    var element = document.querySelector('.language_popup');
-    setLanguage(txt);
-    element.style.transform = 'translateY(1000px)';
-    element.style.transition = 'transform 1s ease-in-out';
+    setTimeout(() => {
+      i18n.changeLanguage(lng);
+      var element = document.querySelector('.language_popup');
+  
+      setLanguage(txt);
+  
+      element.style.transform = 'translateY(1000px)';
+      element.style.transition = 'transform 1s ease-in-out';
+    }, 100)
   }
 
   const signInWithGoogle = () => {
     signInWithPopup(auth, provider)
-      .then((result) => {
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
+      .then(async (result) => {
 
-        setAccessToken(token)
-        // localStorage.setItem('token', token);
+        const credential = GoogleAuthProvider.credentialFromResult(result)
+        const accessToken = credential.accessToken;
+        const idToken = credential.idToken;
+        
+        setAccessToken(accessToken);
+
+        const googleAuth = await fetch('https://tookserver.herokuapp.com/web-passenger/auth/google', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            accessToken,
+            idToken
+          })
+        });
+
+        const storeAuth = await googleAuth.json();
+        console.log(storeAuth)
+
+        if(storeAuth.success === 'true') {
+          const addDriver = await fetch('https://tookserver.herokuapp.com/web-passenger/add-driver', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              driverId
+            })
+          });
+
+          const isdriverAdd = await addDriver.json();
+          console.log(isdriverAdd)
+        }
       })
       .catch((error) => {
         console.error(error.message)
@@ -157,7 +203,7 @@ function DriverProfile() {
             <div className='driver_row'>
               <div className='driver_profile'>
                 <div className='login-success'>
-                  {success && accessToken && <h1 className='login-success-title'>{t('Driver Added Successfully')}</h1>}
+                  {accessToken && <h1 className='login-success-title'>{t('Driver Added Successfully')}!</h1>}
                 </div>
                 <div className='driver_image'>
                   <img src={driver.personalInfo.profileUrl ? driver.personalInfo.profileUrl : '/asset/images/invalid_image.png'} alt="Driver Image" />
@@ -182,7 +228,7 @@ function DriverProfile() {
                 </div>
 
                 <div className='idn'>
-                {success && accessToken &&
+                {accessToken &&
                   <>
                     <h2 className='idn-title'>Download IDN Private Application</h2>
                     <div className='idn-store'>
