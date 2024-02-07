@@ -54,7 +54,6 @@ function DriverProfile() {
   document.title = t('Add your driver');
 
   const app = initializeApp(firebaseConfig)
-  const analytics = getAnalytics(app)
   const auth = getAuth(app);
   const provider = new GoogleAuthProvider();
 
@@ -232,14 +231,14 @@ function DriverProfile() {
                   <>
                     <h2 className='idn-title'>Download IDN Private Application</h2>
                     <div className='idn-store'>
-                      <img src='/asset/images/google_play.png' alt='Google Play' width={200} height={60}/>
-                      <img src='/asset/images/apple_store.png' alt='Apple Store' width={200} height={60}/>
+                      <a href="https://play.google.com/store/apps/details?id=com.took.idn_client"><img src='/asset/images/google_play.png' alt='Google Play' width={200} height={60}/></a>
+                      <a href="https://apps.apple.com/us/app/idn-private/id1668769807"><img src='/asset/images/apple_store.png' alt='Apple Store' width={200} height={60}/></a>
                     </div>
 
                     <h2 className='idn-title'>Download IDN Public Application</h2>
                     <div className='idn-store'>
-                      <img src='/asset/images/google_play.png' alt='Google Play' width={200} height={60}/>
-                      <img src='/asset/images/apple_store.png' alt='Apple Store' width={200} height={60}/>
+                      <a href="https://play.google.com/store/apps/details?id=com.took.passenger"><img src='/asset/images/google_play.png' alt='Google Play' width={200} height={60}/></a>
+                      <a href="https://apps.apple.com/us/app/idn-public/id1575123800"><img src='/asset/images/apple_store.png' alt='Apple Store' width={200} height={60}/></a>
                     </div>
                   </>
                 }

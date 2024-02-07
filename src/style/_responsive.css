@@ -83,7 +83,7 @@
     }
 }
 
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 685px) {
     .App .content .driver-profile__area .driver_row {
         grid-column: 1/-1 !important;
         grid-row: 1/5 !important;
@@ -250,5 +250,16 @@
 @media only screen and (max-height: 550px) {
     .App .content .driver-profile__area .driver_row .driver_profile .driver_image {
         width: 25% !important;
+    }
+}
+
+@media screen and (max-width: 375px){
+    .App .content .driver-profile__area .driver_row.auth .driver_profile {
+        padding: 0 1.5rem !important;
+    }
+
+    .App .content .driver-profile__area .driver_row.auth .driver_profile .idn .idn-store img {
+        width: 90px;
+        height: 30px;
     }
 }
